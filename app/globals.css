@@ -1,0 +1,131 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+
+  --color-background: #000000;
+  --color-foreground: #e6ffe6;
+
+  --color-neon-green: #00ff66;
+  --color-neon-green-dim: #0a3d20;
+  --color-neon-red: #ff2247;
+  --color-neon-red-dim: #3d0a14;
+  --color-muted: #4d6a53;
+
+  --radius: 0px;
+}
+
+html {
+  background-color: var(--color-background);
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}
+
+/* Every corner is sharp. Brutalist means zero radius. */
+* {
+  border-radius: 0 !important;
+}
+
+::selection {
+  background: var(--color-neon-green);
+  color: #000000;
+}
+
+/* CRT scanline overlay */
+.crt-scanlines::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 255, 102, 0.04) 0px,
+    rgba(0, 255, 102, 0.04) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+.crt-flicker {
+  animation: flicker 4s infinite steps(1);
+}
+
+@keyframes flicker {
+  0%,
+  92%,
+  100% {
+    opacity: 1;
+  }
+  93% {
+    opacity: 0.85;
+  }
+  94% {
+    opacity: 1;
+  }
+  96% {
+    opacity: 0.9;
+  }
+}
+
+.glow-green {
+  text-shadow: 0 0 4px rgba(0, 255, 102, 0.8), 0 0 12px rgba(0, 255, 102, 0.5);
+}
+
+.glow-red {
+  text-shadow: 0 0 4px rgba(255, 34, 71, 0.9), 0 0 16px rgba(255, 34, 71, 0.6);
+}
+
+.box-glow-green {
+  box-shadow: 0 0 0 1px var(--color-neon-green), 0 0 14px rgba(0, 255, 102, 0.35);
+}
+
+.box-glow-red {
+  box-shadow: 0 0 0 1px var(--color-neon-red), 0 0 18px rgba(255, 34, 71, 0.4);
+}
+
+.cursor-blink::after {
+  content: '_';
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes glitch-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-4px) skewX(6deg);
+    clip-path: inset(40% 0 40% 0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateX(3px) skewX(-4deg);
+    clip-path: inset(0 0 60% 0);
+  }
+  60% {
+    transform: translateX(-2px);
+    clip-path: inset(50% 0 0 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.glitch-in {
+  animation: glitch-in 0.45s steps(6) both;
+}
+
+@keyframes type-caret {
+  50% {
+    opacity: 0;
+  }
+}
