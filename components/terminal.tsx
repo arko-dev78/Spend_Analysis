@@ -3,11 +3,14 @@
 import { useState, useRef, useEffect } from 'react'
 
 const ROASTS = [
-  'ERROR: DELULU_BEHAVIOR_DETECTED. You spent ₹4000 on Zara? Hope you like eating Maggi for the rest of the month.',
-  'FATAL: FINANCIAL_CRIMES_UNIT_ALERTED. That purchase was a cry for help, and your bank heard it loud and clear.',
-  'WARNING: NPC_SPENDING_PATTERN. You really looked at your savings and said "not today." Iconic. Broke, but iconic.',
-  'CRITICAL: MAIN_CHARACTER_SYNDROME. Nobody asked you to buy that. Your wallet is now on airplane mode.',
-  'SEGFAULT: RENT_MONEY_MISALLOCATED. Bold of you to assume future-you wanted to eat this month.',
+  'ERROR: DELULU_BEHAVIOR_DETECTED. ₹4000 on Zara? Beta, Sarojini market mein yahi cheez ₹400 mein milti. Ab poora mahina Maggi khao.',
+  'FATAL: SWIGGY_ADDICTION_CONFIRMED. Aapne itne mein 47 baar biryani order ki hogi. Kitchen hai ghar mein, chala lo kabhi.',
+  'WARNING: MIDDLE_CLASS_GUILT_OVERFLOW. Papa ne ye sunke AC band kar diya "current ka bill aayega" wale voice mein. Sharam karo.',
+  'CRITICAL: MAIN_CHARACTER_SYNDROME. Sharma ji ka beta abhi SIP kar raha hai, aur aap Nykaa pe "sale" dekh rahe ho. Priorities?',
+  'SEGFAULT: EMI_TRAP_ACTIVATED. "No cost EMI" ka matlab free nahi hota, genius. Ab 6 mahine tak yaad rahega.',
+  '404: SAVINGS_NOT_FOUND. Myntra ne aapko VIP bana diya, aur bank balance ne "insufficient funds" bana diya. Balanced life.',
+  'FATAL: RENT_MONEY_MISALLOCATED. Landlord uncle 3 tareekh se WhatsApp pe "blue tick" dekh rahe hain. Bhaago.',
+  'WARNING: CHAI_SUTTA_ECONOMY_DETECTED. Roz ₹200 ki online shopping, phir bolte ho "yaar mahina end mein tang ho jaata hai." Aashcharya.',
 ]
 
 type Line = {
